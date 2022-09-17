@@ -75,6 +75,12 @@ export const reducer = (state, action) => {
         cartOpen: false,
         cart: []
       };
+    // if action type value is the value of 'CLEAR_CART', return a new state object with an empty cart array and closing the cart
+    case TOGGLE_CART:
+      return {
+        ...state,
+        cartOpen: !state.cartOpen
+      };
    // if it's none of thes actions, do not update state at all and keep things the same!
     default:
       return state;
