@@ -39,6 +39,12 @@ export const reducer = (state, action) => {
         cartOpen: true,
         cart: [...state.cart, action.product]
       };
+    // if action type value is the value of 'ADD_TO_CART', return a new state object with an updated cart array
+    case ADD_MULTIPLE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, ...action.products],
+      };
     // if it's none of thes actions, do not update state at all and keep things the same!
     default:
       return state;
