@@ -56,6 +56,18 @@ export const reducer = (state, action) => {
         cartOpen: newState.length > 0,
         cart: newState
       };
+    // if action type value is the value of 'UPDATE_CART_QUANTITY', return a new state object with an updated cart quantity for the item
+    case UPDATE_CART_QUANTITY:
+      return {
+        ...state,
+        cartOpen: true,
+        cart: state.cart.map(product => {
+          if (action._id === product._id) {
+            product.purchaseQuantity = action.purchaseQuantity;
+          }
+          return product;
+        })
+      };
     // if it's none of thes actions, do not update state at all and keep things the same!
     default:
       return state;
