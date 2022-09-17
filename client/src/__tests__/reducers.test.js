@@ -61,5 +61,15 @@ test('UPDATE_CURRENT_CATEGORY', () => {
 
   expect(newState.currentCategory).toBe('2');
   expect(initialState.currentCategory).toBe('1');
-})
+});
+
+test('ADD_TO_CART', () => {
+  let newState = reducer(initialState, {
+    type: ADD_TO_CART,
+    product: { purchaseQuantity: 1 }
+  });
+
+  expect(newState.cart.length).toBe(3);
+  expect(initialState.cart.length).toBe(2);
+});
 
