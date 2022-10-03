@@ -18,4 +18,5 @@ Node.js
 Express
 MongoDB
 React.js
+BCrypt
 Stripe
